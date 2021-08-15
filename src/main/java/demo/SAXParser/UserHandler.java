@@ -46,19 +46,18 @@ public class UserHandler extends DefaultHandler {
         }
     }
 
-
     @Override
     public void characters(char ch[], int start, int length) throws SAXException {
         String result = new String(ch, start, length);
-        if (isTitle) {
+        if (isTitle && article1 != null) {
             article1.setTitle(result);
-        } else if (isDescription) {
+        } else if (isDescription && article1 != null) {
             article1.setDescription(result);
-        } else if (isPubdate) {
+        } else if (isPubdate && article1 != null) {
             article1.setPubDate(result);
-        } else if (isLink) {
+        } else if (isLink && article1 != null) {
             article1.setLink(result);
-        } else if (isslashComments) {
+        } else if (isslashComments && article1 != null) {
             article1.setSlashComments(result);
         }
     }

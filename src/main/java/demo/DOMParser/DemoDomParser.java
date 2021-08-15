@@ -1,5 +1,6 @@
 package demo.DOMParser;
 
+import demo.Model.ArticleModel;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -14,6 +15,10 @@ public class DemoDomParser {
 
     public static void main(String[] args) {
         List<Article> articleList = readFile();
+        for (Article article:articleList
+             ) {
+            ArticleModel.saveArticle(article);
+        }
     }
     public static List<Article> readFile(){
         List<Article> articleList = new ArrayList<>();
